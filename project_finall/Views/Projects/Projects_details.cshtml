@@ -1,0 +1,71 @@
+﻿@model project_finall.Models.Database.Product
+@using project_finall.Models;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    project_finall.Models.Database.Product x = ViewData["getProduct"] as project_finall.Models.Database.Product;
+}
+<!-- Start project-details Area -->
+<section class="project-details-area section-gap">
+    <div class="container">
+        @{
+            foreach (project_finall.Models.Database.Product p in Commoncs.GetProduct(x.Id_Products))
+            {
+                <div class="row align-items-center">
+                    <div class="col-lg-6 project-details-left">
+                        <img class="img-fluid" style="width:550px; height:550px; border-radius:50px 50px" src="@p.Img" alt="">
+                    </div>
+                    <div class="col-lg-6 project-details-right">
+                        <h3 class="pb-20">@p.Name_Products</h3>
+                     
+                        <p>
+                            @p.Summary_Content
+                        </p>
+                        <div class="details-info d-flex flex-row">
+                            <ul class="names">
+                                <li>chi phí</li>
+                                <li>Đánh giá</li>
+                                <li>Tác giả</li>
+                                <li>Ngày đăng</li>
+                            </ul>
+                            <ul class="desc">
+                                <li>@string.Format("{0:#,0}", @p.Gia)</li>
+                                <li>
+                                    <div class="star">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </li>
+
+                                <li>: Như Ý Artistic</li>
+                             
+                                <li>: @p.Date_Submitted</li>
+                            </ul>
+                        </div>
+                        <div class="social-links mt-30">
+                            <a href="https://www.facebook.com/1618Designs.22"><i class="fa fa-facebook"></i></a>
+                          
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/______1618_designs______/"><i class="fa fa-instagram "></i></a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 project-desc mt-60">
+                        <p>
+                            @Html.Raw(p.Content)
+                        </p>
+                    </div>
+                </div>
+
+            }
+        }
+
+
+    </div>
+</section>
+<!-- End project-details Area -->

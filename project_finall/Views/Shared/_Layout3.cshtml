@@ -1,0 +1,161 @@
+﻿@using project_finall.Models
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>YS DESIGNS WORKSHOP</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+            CSS
+            ============================================= -->
+
+    <link rel="stylesheet" href="~/css/linearicons.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/nice-select.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav nav-menu-container">
+        <div class="container ">
+            <div class="menu-bg-wrap">
+                <div class="site-navigation row align-items-center justify-content-between d-flex">
+
+                    <a href="@Url.Action("Index","Home")" class="logo m-0 float-start"><img src="~/img/lOGO_IN.jpg" alt="" title="" style="width:150px;" /></a>
+                    <nav id="nav-menu-container">
+
+                        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+
+                            <li class="menu-has-children">
+                                <a href="@Url.Action("Index","BlogSingle")">Báo Giá</a>
+                            </li>
+                            @*  <li><a href="@Url.Action("Index","Services")">Services</a></li>*@
+                            <li><a href="@Url.Action("Index","Projects")">Công trình</a></li>
+                            <li class="menu-has-children">
+                                <a href="@Url.Action("PhongThuy","BlogSingle")">Phong Thủy</a>
+                            </li>
+                            <li><a href="@Url.Action("Index","About")">Giới thiệu </a></li>
+                            @*      <li><a href="@Url.Action("Index","Contact")">Contact</a></li>*@
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+
+
+
+
+    <!-- start footer Area -->
+    <footer class="footer-area section-gap footer_section footer_section" , style="background-color: rgb(255, 255, 255);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>About Us</h6>
+                        <p>
+                            Nếu bạn có một ý tưởng tuyệt vời hãy nói với chúng tôi, chúng tôi sẽ giúp bạn hoàn thành ý tưởng đó
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-lg-5  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p>Hãy liên lạc với chúng tôi</p>
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank"
+                                  action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                  method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Email Address"
+                                       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
+                                       required="" type="email">
+                                <button class="click-btn btn btn-default">
+                                    <i class="lnr lnr-arrow-right"
+                                       aria-hidden="true"></i>
+                                </button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                           type="text">
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="https://www.facebook.com/1618Designs.22"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/______1618_designs______/"><i class="fa fa-instagram "></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer Area -->
+    <!-- /.site-footer -->
+    <!-- Preloader -->
+    <!-- End footer Area -->
+    @**@
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="~/js/navbar.js"></script>
+    <script src="~/js/tiny-slider.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/counter.js"></script>
+    <script src="~/js/custom.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+﻿
+@model project_finall.Models.Database.Customer
+@using project_finall.Models.Database
+@{
+    ViewBag.Title = "Articles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    project_finall.Models.Database.Article x = ViewData["getArticles"] as project_finall.Models.Database.Article;
+}
+<style>
+    image {
+        max-width: 750px
+    }
+</style>
+<!-- Start post-content Area -->
+<section class="post-content-area single-post-area">
+    <div class="container">
+        <div class="row">
+            @{
+                foreach (Article article in project_finall.Models.Commoncs.GetArticlesDetail(x.Id_Articles))
+                {
+
+                        <div class="col-lg-12 posts-list">
+                            <div class="single-post row">
+                                <div class="col-lg-12">
+
+                                </div>
+                                <div class="col-lg-3  col-md-3 meta-details">
+
+                                    <div class="user-details row">
+                                        <p class="user-name col-lg-12 col-md-12 col-6">
+                                            <a href="#">@article.Account</a> <span class="lnr lnr-user"></span>
+                                        </p>
+                                        <p class="date col-lg-12 col-md-12 col-6">
+                                            <a href="#">@article.Date_Submitted</a> <span class="lnr lnr-calendar-full"></span>
+                                        </p>
+                                        <ul class="social-links col-lg-12 col-md-12 col-6">
+                                            <li><a href="https://www.facebook.com/1618Designs.22"><i class="fa fa-facebook"></i></a></li>
+                                            <li>
+                                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                            <li><a href="https://www.instagram.com/______1618_designs______/"><i class="fa fa-instagram "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-md-9">
+                                    <a class="posts-title" href="#">
+                                        <h3>@article.Name_Articles</h3>
+                                    </a>
+                                    <p class="excert">
+                                        @article.Summary_Content
+                                    </p>
+
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="quotes">
+                                        @Html.Raw(article.Content)
+                                    </div>
+                                    <div class="row mt-30 mb-30">
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            @using (Html.BeginForm("comment", "BlogSingle", FormMethod.Post))
+                            {
+                                <div class="comment-form">
+                                    <h4>Leave a Comment</h4>
+                                    <form>
+                                        <div class="form-group form-inline">
+                                            <div class="form-group col-lg-6 col-md-12 name">
+                                                @Html.TextBoxFor(m => m.Name_Customer, new
+                                                {
+                                                    @class = "form-control",
+                                                    @id = "name",
+                                                    @placeholder = "Enter Name",
+                                                       @onfocus = "this.placeholder = ''",
+                                                    @onblur = "this.placeholder = 'Enter Name'"
+                                                })
+                                            </div>
+                                            <div class="form-group col-lg-6 col-md-12 email">
+
+                                                @Html.TextBoxFor(m => m.Email, new
+                                                {
+                                                    @class = "form-control",
+                                                    @id = "email",
+                                                    @placeholder = "Enter email address",
+                                                    @onfocus = "this.placeholder = ''",
+                                                       @onblur = "this.placeholder = 'Enter email address'"
+                                                })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            @Html.TextBoxFor(m => m.P_Number, new
+                                            {
+                                                @class = "form-control",
+                                                @id = "Phone",
+                                                @placeholder = "Phone",
+                                                   @onfocus = "this.placeholder = ''",
+                                                @onblur = "this.placeholder = 'Phone'"
+                                            })
+                                        </div>
+                                        <div class="form-group">
+
+                                            @Html.TextAreaFor(m => m.Note, new
+                                            {
+                                                @class = "form-control mb-10",
+                                                @rows = "5",
+                                                @name = "message",
+                                                @placeholder = "Messege",
+                                                      @onfocus = "this.placeholder = ''",
+                                                @onblur = "this.placeholder = 'Messege'",
+                                                      @required = ""
+                                            })
+                                        </div>
+                                        <button class="primary-btn text-uppercase">Post Comment</button>
+                                    </form>
+                                </div>
+                            }
+
+                        </div>
+
+
+                }
+            }
+         
+
+        </div>
+    </div>
+</section>
+<!-- End post-content Area -->

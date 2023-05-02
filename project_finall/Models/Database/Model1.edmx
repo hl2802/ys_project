@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="project_finallModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="P_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Home" Type="nvarchar" MaxLength="300" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="img" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="Id_Articles" />
+          </Key>
+          <Property Name="Id_Articles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Articles" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="Summary_Content" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Date_Submitted" Type="datetime" />
+          <Property Name="Type_Articles" Type="nvarchar" MaxLength="30" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Account" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DADUYET" Type="bit" />
+          <Property Name="Show_Home" Type="bit" />
+          <Property Name="Number_Of_Reads" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id_Customer" />
+          </Key>
+          <Property Name="Id_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Customer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="P_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Home" Type="nvarchar" MaxLength="300" />
+          <Property Name="Note" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YS_DESIGNS.dbo.decentralization' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="decentralization">
+          <Key>
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Id_Mission" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Id_Mission" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Inbox">
+          <Key>
+            <PropertyRef Name="Id_Inbox" />
+          </Key>
+          <Property Name="Id_Inbox" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number_Inbox" Type="varchar" MaxLength="10" />
+          <Property Name="Date_Inbox" Type="datetime" />
+          <Property Name="Activated" Type="bit" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="Id_Customer" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mission">
+          <Key>
+            <PropertyRef Name="Id_Mission" />
+          </Key>
+          <Property Name="Id_Mission" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Type_Mission" Type="varchar" MaxLength="200" />
+          <Property Name="Name_Mission" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="PhongThuy">
+          <Key>
+            <PropertyRef Name="Id_PhongThuy" />
+          </Key>
+          <Property Name="Id_PhongThuy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_PhongThuy" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="Summary_Content" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Date_Submitted" Type="datetime" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Account" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DADUYET" Type="bit" />
+          <Property Name="Show_Home" Type="bit" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id_Products" />
+          </Key>
+          <Property Name="Id_Products" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Products" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="Summary_Content" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Date_Submitted" Type="datetime" />
+          <Property Name="Id_Type_Product" Type="int" Nullable="false" />
+          <Property Name="Name_Type_Product" Type="nvarchar" MaxLength="100" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Content_Gia" Type="nvarchar(max)" />
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DADUYET" Type="bit" />
+          <Property Name="Gia" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YS_DESIGNS.dbo.Profile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Sex" Type="bit" />
+          <Property Name="P_Number" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATUS" Type="bit" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type_Product">
+          <Key>
+            <PropertyRef Name="Id_Type_Product" />
+          </Key>
+          <Property Name="Id_Type_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Type_Product" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Img" Type="varchar(max)" />
+          <Property Name="Note" Type="ntext" />
+        </EntityType>
+        <Association Name="FK__Articles__Accoun__35BCFE0A">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__decentral__Id_Mi__2E1BDC42">
+          <End Role="Mission" Type="Self.Mission" Multiplicity="1" />
+          <End Role="decentralization" Type="Self.decentralization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mission">
+              <PropertyRef Name="Id_Mission" />
+            </Principal>
+            <Dependent Role="decentralization">
+              <PropertyRef Name="Id_Mission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__decentral__Usern__2D27B809">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="decentralization" Type="Self.decentralization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="decentralization">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inbox__Id_Custom__49C3F6B7">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Inbox" Type="Self.Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id_Customer" />
+            </Principal>
+            <Dependent Role="Inbox">
+              <PropertyRef Name="Id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inbox__Username__4AB81AF0">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Inbox" Type="Self.Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Inbox">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhongThuy__Accou__3B75D760">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="PhongThuy" Type="Self.PhongThuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="PhongThuy">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Id_Typ__4F7CD00D">
+          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Product">
+              <PropertyRef Name="Id_Type_Product" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Id_Type_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Userna__52593CB8">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Usernam__29572725">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="project_finallModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inbox" EntityType="Self.Inbox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mission" EntityType="Self.Mission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhongThuy" EntityType="Self.PhongThuy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_Product" EntityType="Self.Type_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="decentralization" EntityType="Self.decentralization" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [decentralization].[Username] AS [Username], 
+    [decentralization].[Id_Mission] AS [Id_Mission], 
+    [decentralization].[Note] AS [Note]
+    FROM [dbo].[decentralization] AS [decentralization]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Profile" EntityType="Self.Profile" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Profile].[Surname] AS [Surname], 
+    [Profile].[Middle_Name] AS [Middle_Name], 
+    [Profile].[Name] AS [Name], 
+    [Profile].[Sex] AS [Sex], 
+    [Profile].[P_Number] AS [P_Number], 
+    [Profile].[Email] AS [Email], 
+    [Profile].[STATUS] AS [STATUS], 
+    [Profile].[Note] AS [Note], 
+    [Profile].[Username] AS [Username]
+    FROM [dbo].[Profile] AS [Profile]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Articles__Accoun__35BCFE0A" Association="Self.FK__Articles__Accoun__35BCFE0A">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__decentral__Id_Mi__2E1BDC42" Association="Self.FK__decentral__Id_Mi__2E1BDC42">
+            <End Role="Mission" EntitySet="Mission" />
+            <End Role="decentralization" EntitySet="decentralization" />
+          </AssociationSet>
+          <AssociationSet Name="FK__decentral__Usern__2D27B809" Association="Self.FK__decentral__Usern__2D27B809">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="decentralization" EntitySet="decentralization" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inbox__Id_Custom__49C3F6B7" Association="Self.FK__Inbox__Id_Custom__49C3F6B7">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Inbox" EntitySet="Inbox" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inbox__Username__4AB81AF0" Association="Self.FK__Inbox__Username__4AB81AF0">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Inbox" EntitySet="Inbox" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhongThuy__Accou__3B75D760" Association="Self.FK__PhongThuy__Accou__3B75D760">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="PhongThuy" EntitySet="PhongThuy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Id_Typ__4F7CD00D" Association="Self.FK__Products__Id_Typ__4F7CD00D">
+            <End Role="Type_Product" EntitySet="Type_Product" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Userna__52593CB8" Association="Self.FK__Products__Userna__52593CB8">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Usernam__29572725" Association="Self.FK__Profile__Usernam__29572725">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="project_finallModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="P_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Home" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK__Articles__Accoun__31EC6D26" FromRole="Account" ToRole="Articles" />
+          <NavigationProperty Name="decentralizations" Relationship="Self.FK__decentral__Usern__29572725" FromRole="Account" ToRole="decentralization" />
+          <NavigationProperty Name="Inboxes" Relationship="Self.FK__Inbox__Username__4222D4EF" FromRole="Account" ToRole="Inbox" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__Userna__3C69FB99" FromRole="Account" ToRole="Products" />
+          <NavigationProperty Name="PhongThuys" Relationship="project_finallModel.FK__PhongThuy__Accou__5EBF139D" FromRole="Account" ToRole="PhongThuy" />
+          <NavigationProperty Name="Profiles" Relationship="project_finallModel.FK__Profile__Usernam__4AB81AF0" FromRole="Account" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id_Articles" />
+          </Key>
+          <Property Name="Id_Articles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Articles" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Summary_Content" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Submitted" Type="DateTime" Precision="3" />
+          <Property Name="Type_Articles" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DADUYET" Type="Boolean" />
+          <Property Name="Show_Home" Type="Boolean" />
+          <Property Name="Number_Of_Reads" Type="Int32" />
+          <NavigationProperty Name="Account1" Relationship="Self.FK__Articles__Accoun__31EC6D26" FromRole="Articles" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id_Customer" />
+          </Key>
+          <Property Name="Id_Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="P_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Home" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Inboxes" Relationship="Self.FK__Inbox__Id_Custom__412EB0B6" FromRole="Customer" ToRole="Inbox" />
+        </EntityType>
+        <EntityType Name="Inbox">
+          <Key>
+            <PropertyRef Name="Id_Inbox" />
+          </Key>
+          <Property Name="Id_Inbox" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number_Inbox" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Inbox" Type="DateTime" Precision="3" />
+          <Property Name="Activated" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Customer" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Inbox__Username__4222D4EF" FromRole="Inbox" ToRole="Account" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Inbox__Id_Custom__412EB0B6" FromRole="Inbox" ToRole="Customer" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mission">
+          <Key>
+            <PropertyRef Name="Id_Mission" />
+          </Key>
+          <Property Name="Id_Mission" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type_Mission" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name_Mission" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="decentralizations" Relationship="Self.FK__decentral__Id_Mi__2A4B4B5E" FromRole="Mission" ToRole="decentralization" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id_Products" />
+          </Key>
+          <Property Name="Id_Products" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Products" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Summary_Content" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Submitted" Type="DateTime" Precision="3" />
+          <Property Name="Id_Type_Product" Type="Int32" Nullable="false" />
+          <Property Name="Name_Type_Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DADUYET" Type="Boolean" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Products__Userna__3C69FB99" FromRole="Products" ToRole="Account" />
+          <NavigationProperty Name="Type_Product" Relationship="Self.FK__Products__Id_Typ__3A81B327" FromRole="Products" ToRole="Type_Product" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="Content_Gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Type_Product">
+          <Key>
+            <PropertyRef Name="Id_Type_Product" />
+          </Key>
+          <Property Name="Id_Type_Product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Type_Product" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__Id_Typ__3A81B327" FromRole="Type_Product" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="decentralization">
+          <Key>
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Id_Mission" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Mission" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__decentral__Usern__29572725" FromRole="decentralization" ToRole="Account" />
+          <NavigationProperty Name="Mission" Relationship="Self.FK__decentral__Id_Mi__2A4B4B5E" FromRole="decentralization" ToRole="Mission" />
+        </EntityType>
+        <Association Name="FK__Articles__Accoun__31EC6D26">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Articles" Type="Self.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__decentral__Usern__29572725">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="decentralization" Type="Self.decentralization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="decentralization">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inbox__Username__4222D4EF">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Inbox" Type="Self.Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Inbox">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Userna__3C69FB99">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inbox__Id_Custom__412EB0B6">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Inbox" Type="Self.Inbox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id_Customer" />
+            </Principal>
+            <Dependent Role="Inbox">
+              <PropertyRef Name="Id_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__decentral__Id_Mi__2A4B4B5E">
+          <End Role="Mission" Type="Self.Mission" Multiplicity="1" />
+          <End Role="decentralization" Type="Self.decentralization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mission">
+              <PropertyRef Name="Id_Mission" />
+            </Principal>
+            <Dependent Role="decentralization">
+              <PropertyRef Name="Id_Mission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__Id_Typ__3A81B327">
+          <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_Product">
+              <PropertyRef Name="Id_Type_Product" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Id_Type_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YS_DESIGNSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Articles" EntityType="Self.Article" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Inboxes" EntityType="Self.Inbox" />
+          <EntitySet Name="Missions" EntityType="Self.Mission" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Type_Product" EntityType="Self.Type_Product" />
+          <EntitySet Name="decentralizations" EntityType="Self.decentralization" />
+          <AssociationSet Name="FK__Articles__Accoun__31EC6D26" Association="Self.FK__Articles__Accoun__31EC6D26">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__decentral__Usern__29572725" Association="Self.FK__decentral__Usern__29572725">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="decentralization" EntitySet="decentralizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inbox__Username__4222D4EF" Association="Self.FK__Inbox__Username__4222D4EF">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Inbox" EntitySet="Inboxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Userna__3C69FB99" Association="Self.FK__Products__Userna__3C69FB99">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inbox__Id_Custom__412EB0B6" Association="Self.FK__Inbox__Id_Custom__412EB0B6">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Inbox" EntitySet="Inboxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__decentral__Id_Mi__2A4B4B5E" Association="Self.FK__decentral__Id_Mi__2A4B4B5E">
+            <End Role="Mission" EntitySet="Missions" />
+            <End Role="decentralization" EntitySet="decentralizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__Id_Typ__3A81B327" Association="Self.FK__Products__Id_Typ__3A81B327">
+            <End Role="Type_Product" EntitySet="Type_Product" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="PhongThuys" EntityType="project_finallModel.PhongThuy" />
+          <EntitySet Name="Profiles" EntityType="project_finallModel.Profile" />
+          <AssociationSet Name="FK__PhongThuy__Accou__5EBF139D" Association="project_finallModel.FK__PhongThuy__Accou__5EBF139D">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="PhongThuy" EntitySet="PhongThuys" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Usernam__4AB81AF0" Association="project_finallModel.FK__Profile__Usernam__4AB81AF0">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PhongThuy">
+          <Key>
+            <PropertyRef Name="Id_PhongThuy" />
+          </Key>
+          <Property Name="Id_PhongThuy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_PhongThuy" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Summary_Content" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Submitted" Type="DateTime" Precision="3" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DADUYET" Type="Boolean" />
+          <Property Name="Show_Home" Type="Boolean" />
+          <NavigationProperty Name="Account1" Relationship="project_finallModel.FK__PhongThuy__Accou__5EBF139D" FromRole="PhongThuy" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Boolean" />
+          <Property Name="P_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Boolean" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Account" Relationship="project_finallModel.FK__Profile__Usernam__4AB81AF0" FromRole="Profile" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK__PhongThuy__Accou__5EBF139D">
+          <End Type="project_finallModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="project_finallModel.PhongThuy" Role="PhongThuy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="PhongThuy">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Usernam__4AB81AF0">
+          <End Type="project_finallModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="project_finallModel.Profile" Role="Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="project_finallModelStoreContainer" CdmEntityContainer="YS_DESIGNSEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="project_finallModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="P_Number" ColumnName="P_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Home" ColumnName="Home" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="project_finallModel.Article">
+              <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="Id_Articles" ColumnName="Id_Articles" />
+                <ScalarProperty Name="Name_Articles" ColumnName="Name_Articles" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Summary_Content" ColumnName="Summary_Content" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Type_Articles" ColumnName="Type_Articles" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="DADUYET" ColumnName="DADUYET" />
+                <ScalarProperty Name="Show_Home" ColumnName="Show_Home" />
+                <ScalarProperty Name="Number_Of_Reads" ColumnName="Number_Of_Reads" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="project_finallModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+                <ScalarProperty Name="Name_Customer" ColumnName="Name_Customer" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="P_Number" ColumnName="P_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Home" ColumnName="Home" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inboxes">
+            <EntityTypeMapping TypeName="project_finallModel.Inbox">
+              <MappingFragment StoreEntitySet="Inbox">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id_Inbox" ColumnName="Id_Inbox" />
+                <ScalarProperty Name="Number_Inbox" ColumnName="Number_Inbox" />
+                <ScalarProperty Name="Date_Inbox" ColumnName="Date_Inbox" />
+                <ScalarProperty Name="Activated" ColumnName="Activated" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Missions">
+            <EntityTypeMapping TypeName="project_finallModel.Mission">
+              <MappingFragment StoreEntitySet="Mission">
+                <ScalarProperty Name="Id_Mission" ColumnName="Id_Mission" />
+                <ScalarProperty Name="Type_Mission" ColumnName="Type_Mission" />
+                <ScalarProperty Name="Name_Mission" ColumnName="Name_Mission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="project_finallModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Content_Gia" ColumnName="Content_Gia" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="Id_Products" ColumnName="Id_Products" />
+                <ScalarProperty Name="Name_Products" ColumnName="Name_Products" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Summary_Content" ColumnName="Summary_Content" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Id_Type_Product" ColumnName="Id_Type_Product" />
+                <ScalarProperty Name="Name_Type_Product" ColumnName="Name_Type_Product" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="DADUYET" ColumnName="DADUYET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_Product">
+            <EntityTypeMapping TypeName="project_finallModel.Type_Product">
+              <MappingFragment StoreEntitySet="Type_Product">
+                <ScalarProperty Name="Id_Type_Product" ColumnName="Id_Type_Product" />
+                <ScalarProperty Name="Name_Type_Product" ColumnName="Name_Type_Product" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="decentralizations">
+            <EntityTypeMapping TypeName="project_finallModel.decentralization">
+              <MappingFragment StoreEntitySet="decentralization">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id_Mission" ColumnName="Id_Mission" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhongThuys">
+            <EntityTypeMapping TypeName="project_finallModel.PhongThuy">
+              <MappingFragment StoreEntitySet="PhongThuy">
+                <ScalarProperty Name="Show_Home" ColumnName="Show_Home" />
+                <ScalarProperty Name="DADUYET" ColumnName="DADUYET" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Summary_Content" ColumnName="Summary_Content" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Name_PhongThuy" ColumnName="Name_PhongThuy" />
+                <ScalarProperty Name="Id_PhongThuy" ColumnName="Id_PhongThuy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="project_finallModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="P_Number" ColumnName="P_Number" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,270 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout2.cshtml";
+}
+
+@using project_finall.Models
+@{
+
+}
+
+<!-- Start gallery Area -->
+<section class="service-area section-gap" id="service">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 pb-50 header-text text-center">
+                <h1 class="pb-10">Simple. Modern. Residential Architecture.</h1>
+
+            </div>
+        </div>
+        <div class="row">
+            @{
+                foreach (project_finall.Models.Database.Type_Product tp in Commoncs.GetType_Products().Take(1))
+                {
+
+                    foreach (project_finall.Models.Database.Product p in Commoncs.getProductByType_Product(tp.Id_Type_Product = 1).Take(1))
+
+                    {
+                        <div class="col-lg-6">
+                            <div class="single-service" style=" background-color: #ffff; border-color: #afafaf2e;">
+
+                                <img src="~/img/demo/pt1.jpg" class="content-image img-fluid d-block mx-auto" style=" border-radius:10px 10px" />
+                                <a href="@Url.Action("Type_Projects", "Projects",  new {Id_Type_Product=p.Id_Type_Product})">
+                                    <h4>Thiết Kế Nội Thất </h4>
+                                </a>
+                                <p>
+                                    @p.Summary_Content
+                                </p>
+                            </div>
+                        </div>
+
+                    }
+                    foreach (project_finall.Models.Database.Product p in Commoncs.getProductByType_Product(tp.Id_Type_Product = 2).Take(1))
+
+                    {
+                        <div class="col-lg-6">
+                            <div class="single-service" style=" background-color: #ffff; border-color: #afafaf2e;">
+
+                                <img src="~/img/demo/pt1.jpg" class="content-image img-fluid d-block mx-auto" style=" border-radius:10px 10px" />
+                                <a href="@Url.Action("Type_Projects", "Projects",  new {Id_Type_Product=p.Id_Type_Product})">
+                                    <h4>Kiến Trúc Công trình</h4>
+                                </a>
+                                <p>
+                                  @Html.Raw(p.Summary_Content)
+                                </p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+            }
+
+        </div>
+    </div>
+</section>
+
+<!-- Start callto-action Area -->
+<section class="callto-action-area pt-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="callto-action-wrap col-lg-12 relative section-gap">
+                <div class="content">
+                    <h1>
+                        Tìm kiếm một<br />
+                        thiết kế nội thất chất lượng và giá cả phải chăng?
+                    </h1>
+                    <p class="mx-auto">
+                        <!-- inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. -->
+                    </p>
+                    <a href="#" class="primary-btn text-uppercase"> QUAY LẠI NGAY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End callto-action Area -->
+<!-- Start blog Area -->
+<section class="blog-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10">Bài viết tiêu biểu</h1>
+                    <!-- <p>Who are in extremely love with eco friendly system.</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-blog-carusel">
+                @{
+                    foreach (project_finall.Models.Database.Article article in Commoncs.GetArticles(5))
+                    {
+                        <div class="single-blog-post item">
+                            <div class="thumb">
+                                <img class="img-fluid" src="@article.Img" alt="">
+                            </div>
+                            <div class="details">
+                                <div class="tags">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Life Style</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="@Url.Action("Articles", "BlogSingle", new {Id_Articles=article.Id_Articles})">
+                                    <h4 class="title">@article.Name_Articles</h4>
+                                </a>
+                                <p>
+                                    @article.Summary_Content
+                                </p>
+                                <h6 class="date">
+                                    <span>
+                                        @string.Format("0: MMM dd yyyy", article.Date_Submitted)in
+                                        <a href="#">@(article.Type_Articles.Equals("QC")? "advertisement": "news")</a>
+                                    </span>
+                                </h6>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog Area -->
+<div class="section section-4 bg-light">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-5">
+                <h1 class="font-weight-bold heading text-primary mb-5">
+                    <span>XU HƯỚNG THIẾT KẾ 
+                              NĂM 2023</span> 
+                </h1>
+                <p class="text-black-50">
+                    
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-between mb-5">
+            <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
+                <div class="img-about dots">
+                    <a href="@Url.Action("Index","Projects")"> <img src="~/img/hero_bg_3.jpg" alt="Image" class="img-fluid" /></a>
+                   
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex feature-h">
+                
+                    <div class="feature-text">
+                        <h3 class="heading">200 LƯỢT QUAN TÂM</h3>
+                        <p class="text-black-50">
+                          Có được sự quan tâm đánh giá tốt nhất trong năm
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                  
+                    <div class="feature-text">
+                        <h3 class="heading">SẢN PHẨM ĐƯỢC XẾP HẠNG HÀNG ĐẦU</h3>
+                        <p class="text-black-50">
+                            LÀ THIẾT KẾ ĐƯỢC ĐÁNH GIÁ VÀ CHẤM ĐIỂM THUỘC TOP 1 TRONG GIỚI THIẾT KẾ
+                            
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                 
+                    <div class="feature-text">
+                        <h3 class="heading">DẢM BẢO VỀ CHẤT LƯỢNG</h3>
+                        <p class="text-black-50">
+                            MỌI SẢN PHẨM CỦA Ý DESIGNS ĐỀU ĐƯỢC ĐẢM BẢO VỀ CHẤT LƯỢNG VÀ SỰ HÀI LÒNG CỦA KHÁCH HÀNG
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="row section-counter mt-5">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">3298</span></span>
+                    <span class="caption text-black-50"># of Buy Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3"
+                 data-aos="fade-up"
+                 data-aos-delay="400">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">2181</span></span>
+                    <span class="caption text-black-50"># of Sell Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3"
+                 data-aos="fade-up"
+                 data-aos-delay="500">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">9316</span></span>
+                    <span class="caption text-black-50"># of All Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3"
+                 data-aos="fade-up"
+                 data-aos-delay="600">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">7191</span></span>
+                    <span class="caption text-black-50"># of Agents</span>
+                </div>
+            </div>
+        </div>*@
+    </div>
+</div>
+
+
+<section class="testimonial-area pt-120">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Bình luận và nhận xét của khách hàng</h1>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-testimonial-carusel">
+
+                @{
+                    foreach (project_finall.Models.Database.Customer customer in Commoncs.GetCustomers())
+                    {
+                        <div class="single-testimonial item d-flex flex-row">
+                            <div class="thumb">
+                                <img class="img-fluid" src="img/elements/user1.png" alt="">
+                            </div>
+                            <div class="desc">
+                                <h4 mt-30>@customer.Name_Customer</h4>
+                                <p>
+                                   @customer.Note
+                                </p>
+                                <div class="star">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+

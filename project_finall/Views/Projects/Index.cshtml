@@ -1,0 +1,85 @@
+﻿@using project_finall.Models
+@model project_finall.Models.Database.Type_Product
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="hero page-inner overlay"
+     style="background-image: url('/img/hero_bg_1.jpg')">
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+           
+
+                <nav aria-label="breadcrumb"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End gallery Area -->
+<div class="section section-properties">
+    <div class="container">
+        <div class="row">
+            @{
+                foreach (project_finall.Models.Database.Product x in Commoncs.GetProducts())
+                {
+
+
+                    @*           <div class="col-lg-6">
+                            <div class="single-service" style=" background-color: #ffff; border-color: #afafaf2e;">
+
+                                <img src="@x.Img" class="content-image img-fluid d-block mx-auto" style=" border-radius:10px 10px; width:350px;height:350px" />
+                                <a href="@Url.Action("Projects_details","Projects", new {Id_Products=x.Id_Products})">
+                                    <h4>@x.Name_Type_Product</h4>
+                                </a>
+                                <p>
+                                    @x.Summary_Content
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr />*@
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <div class="property-item mb-30">
+                            <a href="property-single.html" class="img">
+                                <img src="@x.Img" alt="Image" class="img-fluid" style=" border-radius:10px 10px; width:350px;height:350px" />
+                            </a>
+
+                            <div class="property-content">
+                                <div class="price mb-2"><span> @string.Format("{0:#,0}", @x.Gia)</span></div>
+                                <div>
+                                    <span class="d-block mb-2 text-black-50">@x.Name_Type_Product</span>
+                                    <span class="city d-block mb-3">@x.Name_Products</span>
+
+                                    <div class="specs d-flex mb-4">
+                                     
+                                       
+                                    </div>
+
+                                    <a href="@Url.Action("Projects_details","Projects", new {Id_Products=x.Id_Products})"
+                                       class="btn btn-primary py-2 px-3">See details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .item -->
+                    </div>
+
+                }
+            }
+
+
+        </div>
+
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/tiny-slider.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/counter.js"></script>
+<script src="js/custom.js"></script>

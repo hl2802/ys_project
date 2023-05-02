@@ -1,0 +1,174 @@
+﻿@model project_finall.Models.Database.PhongThuy
+@using project_finall.Models.Database
+@{
+    ViewBag.Title = "PhongThuy";
+    Layout = "~/Areas/PrivatePage/Views/Shared/_Layout.cshtml";
+}
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+
+
+
+        </div>
+        <div class="clearfix"></div>
+
+
+        @using (Html.BeginForm("PhongThuy", "Articles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {@Html.AntiForgeryToken()
+        <div class="row m-2 ">
+            <div class="col-md-12">
+                <div class="content">
+                    <div class="section-block" id="basicform">
+                        <h3 class="section-title">New Post</h3>
+                    </div>
+                    <div class="card">
+                        <div class="row">
+                            <!-- form input mask -->
+                            <div class="col-md-8">
+                                <div class="x_panel">
+
+                                    <div class="x_content">
+                                        <br />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <form class=" m-1">
+
+                                            <div class="form-group m-2">
+                                                @Html.LabelFor(model => model.Name_PhongThuy, "Title", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Name_PhongThuy, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name of the article" } })
+                                                    @Html.ValidationMessageFor(model => model.Name_PhongThuy, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-2">
+                                                @Html.LabelFor(model => model.Summary_Content, "Description", htmlAttributes: new { @class = "control-label col-md-2", @placeholder = "Sumary for article" })
+                                                <div class="col-md-12">
+                                                    @Html.EditorFor(model => model.Summary_Content, new { htmlAttributes = new { @class = "form-control", @placeholder = "Name of the article" } })
+
+                                                    @Html.ValidationMessageFor(model => model.Summary_Content, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class=" m-1">
+                                                <div class="form-group col-md-4">
+                                                    @Html.LabelFor(model => model.Date_Submitted, "Date", htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="col-md-14">
+                                                        @Html.EditorFor(model => model.Date_Submitted, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                                        @Html.ValidationMessageFor(model => model.Date_Submitted, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    @Html.LabelFor(model => model.Account, "Author", htmlAttributes: new { @class = "col-form-label", })
+                                                    <div class="col-md-14">
+                                                        @Html.TextBoxFor(m => m.Account, new { @class = "form-control", @disabled = "disabled" })
+                                                        @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-2">
+                                                    @Html.LabelFor(model => model.DADUYET, "Active", htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="col-md-12">
+                                                        <div class="checkbox">
+                                                            <input type="checkbox" value="true" name="DADUYET" />
+                                                            @Html.ValidationMessageFor(model => model.DADUYET, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- /form input mask -->
+                            <!-- form color picker -->
+                            <div class=" col-md-3">
+
+                                <h3>Upload Images</h3>
+                                <img id="ImgDemo" class="img-fluid img-thumbnail" src="~/img/b2.jpg" />
+                                <div class="custom-file input-group">
+                                    <div class="mb-3">
+                                        <div class="row col-md-12">
+                                            <label class="col-form-label">Img</label>
+                                            <input type="file" name="HinhDaiDien" class=" form-control" id="idimg"
+                                                   onchange="document.getElementById('ImgDemo').src = window.URL.createObjectURL(this.files[0])" />
+                                            @Html.ValidationMessageFor(model => model.Img, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row m-2 ">
+                                <div class="col-md-12">
+                                    <div class="content">
+                                        <div class="section-block" id="basicform">
+                                            <h3 class="section-title">Bài viết</h3>
+                                        </div>
+
+
+                                        <div class="card">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="x_panel">
+                                                        <div class="x_title">
+
+                                                            <ul class="nav navbar-right panel_toolbox">
+                                                                <li>
+                                                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                                </li>
+                                                                <li class="dropdown">
+                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+
+                                                                </li>
+
+                                                            </ul>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="x_content">
+                                                            <div id="alerts"></div>
+
+                                                            @Html.TextAreaFor(model => model.Content, new { @id = "inputND", @class = "editor-wrapper" })
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="email action-send">
+                                                    <div class="col-md-12 m-2">
+                                                        <div class="form-group">
+                                                            <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> Save</button>
+                                                            <button class="btn btn-secondary btn-space" type="button"><i class="icon s7-close"></i> Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    </div>
+</div>
+<!-- /page content -->
+<script src="https://cdn.tiny.cloud/1/eshbg0ukbk4dtkrlbz649nh0o2naxqins8wrrty14gz54y2t/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+</script>

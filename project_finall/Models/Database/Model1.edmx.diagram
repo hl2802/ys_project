@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6357b5ce3964fd8b2e8c04fe320adf4" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="project_finallModel.Account" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Article" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Customer" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Inbox" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Mission" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Product" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.Type_Product" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project_finallModel.decentralization" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="project_finallModel.FK__Articles__Accoun__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__decentral__Usern__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__Inbox__Username__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__Products__Userna__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__Inbox__Id_Custom__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__decentral__Id_Mi__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="project_finallModel.FK__Products__Id_Typ__3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="project_finallModel.PhongThuy" Width="1.5" PointX="3" PointY="19.375" />
+        <EntityTypeShape EntityType="project_finallModel.Profile" Width="1.5" PointX="3" PointY="15.625" />
+        <AssociationConnector Association="project_finallModel.FK__PhongThuy__Accou__5EBF139D" />
+        <AssociationConnector Association="project_finallModel.FK__Profile__Usernam__4AB81AF0" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

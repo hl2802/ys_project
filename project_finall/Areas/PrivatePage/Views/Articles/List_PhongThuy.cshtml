@@ -1,0 +1,83 @@
+﻿@model project_finall.Models.Database.PhongThuy
+@using project_finall.Models.Database
+
+@{
+    ViewBag.Title = "List_PhongThuy";
+    Layout = "~/Areas/PrivatePage/Views/Shared/_Layout.cshtml";
+    List<PhongThuy> phongThuys = (List<PhongThuy>)ViewData["List_PhongThuy"];
+}
+<!-- page content -->
+<div class="right_col" role="main">
+
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+
+
+                        <table class="table table-striped table-bordered dt-responsive nowrap"
+                               cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+
+                                    <th>Name Articles</th>
+                                    <th>Image</th>
+                                    <th>Summary Content</th>
+                                    <th>Date Submitted</th>
+                                    <th>Show Home</th>
+                                    <th>User</th>
+                                    <th>Confirm</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            @foreach (project_finall.Models.Database.PhongThuy item in phongThuys)
+                            {
+                                <tbody>
+                                    <tr>
+
+                                        <td>@item.Name_PhongThuy</td>
+                                        <td><img style="width:70px;height:70px" src="@item.Img" /> </td>
+                                        <td>@item.Summary_Content</td>
+                                        <td>@string.Format("{0:hh:mm [dd/MM/yyyy]}", item.Date_Submitted)</td>
+                                        <td>@item.Show_Home</td>
+                                        <td>@item.Account1.Middle_Name @item.Account1.Name</td>
+                                        <td>@item.DADUYET</td>
+
+                                        <td>
+                                            @using (Html.BeginForm("ActiveP", "Articles", FormMethod.Post))
+                                            {
+                                                <input type="hidden" name="ID_Article" value="@item.Id_PhongThuy" />
+                                                <button class="btn btn-success btn-xs"><i class="fa fa-trash-o"></i> @ViewBag.tdButton</button>
+
+                                            }
+
+                                            <button class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </button>
+
+
+                                            @using (Html.BeginForm("DeleteP", "Articles", FormMethod.Post))
+                                            {
+                                                <input type="hidden" name="ID_Article" value="@item.Id_PhongThuy" />
+                                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </button>
+                                            }
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            }
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /page content -->

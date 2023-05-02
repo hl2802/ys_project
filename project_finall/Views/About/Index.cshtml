@@ -1,0 +1,119 @@
+﻿@using project_finall.Models.Database
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<div class="hero page-inner overlay"
+     style="background-image: url('/img/hero_bg_1.jpg')">
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+         
+
+                <nav aria-label="breadcrumb"
+                     data-aos="fade-up"
+                     data-aos-delay="200">
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start about-video Area -->
+<section class="about-video-area section-gap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 about-video-left">
+                <h6 class="text-uppercase">Brand new app to blow your mind</h6>
+                <h1>
+                    We’ve made a life <br>
+                    that will change you
+                </h1>
+                <p>
+                    <span>We are here to listen from you deliver exellence</span>
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim.
+                </p>
+                <a class="primary-btn mt-30" href="#">Get Started Now</a>
+            </div>
+            <div class="col-lg-6 about-video-right justify-content-center align-items-center d-flex relative">
+                <div class="overlay overlay-bg"></div>
+                <a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM">
+                    <img class="img-fluid mx-auto" src="~/img/play-btn.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End about-video Area -->
+<!-- Start callto-action Area -->
+<section class="callto-action-area pt-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="callto-action-wrap col-lg-12 relative section-gap">
+                <div class="content">
+                    <h1>
+                        Looking for a <br>
+                        quality and affordable interior design?
+                    </h1>
+
+                    <a href="#" class="primary-btn text-uppercase">Request quote now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End callto-action Area -->
+<!-- Start blog Area -->
+<section class="blog-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
+                    <!-- <p>Who are in extremely love with eco friendly system.</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-blog-carusel">
+                @{
+                    foreach (project_finall.Models.Database.Article article in project_finall.Models.Commoncs.GetArticles(3))
+                    {
+                        <div class="single-blog-post item">
+                            <div class="thumb">
+                                <img class="img-fluid" src="@article.Img" alt="">
+                            </div>
+                            <div class="details">
+                                <div class="tags">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Life Style</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="@Url.Action("Articles", "BlogSingle", new {Id_Articles=article.Id_Articles})">
+                                    <h4 class="title">@article.Name_Articles</h4>
+                                </a>
+                                <p>
+                                    @article.Summary_Content
+                                </p>
+                                <h6 class="date">
+                                    <span>
+                                        @string.Format("0: MMM dd yyyy", article.Date_Submitted)in
+                                        <a href="#">@(article.Type_Articles.Equals("QC")? "advertisement": "news")</a>
+                                    </span>
+                                </h6>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog Area -->
